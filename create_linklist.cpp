@@ -2,27 +2,30 @@
 #include<stdlib.h>
 struct node
 {
-	int a;
-	struct node *l;
+	int data;
+	struct node *link;
 };
 int main()
 {
+	int n;
 	struct node *t,*n,*h='\0';
-	for(int i=0;i<4;i++)
+	std::cout<<"enter no. of nodes ";
+	std::cin>>n;
+	for(int i=0;i<n;i++)
 	{
-		n = new node;
+		n = new node;//new node creation
 		if(h=='\0')
 		{
-			h=n;
+			h=n;//assigning head node for the first node
 			t=n;
-			n->a=i+10;
+			n->data=i+10;
 		}
 		else{
 			
-		n->a=i+10;
-		t->l=n;
+		n->data=i+10;
+		t->link=n;//linking of previous node with new node
 		t=n;
-		t->l='\0';
+		t->link='\0';
 		
 		
 	       }
@@ -30,15 +33,15 @@ int main()
 	}
 
 	
-	struct node *o,*p,*q;
+	struct node *p;
 	
 	p=new node;
-	p=h;
+	p=h;//taking first node
 	
 	while(p!='\0')
 	{
-		std::cout<<" "<<p->a;
-		p=p->l;
+		std::cout<<" "<<p->data;
+		p=p->link;//traversing to next node
 	}
 	
 	
